@@ -1,19 +1,66 @@
 <!DOCTYPE html> 
 <style>
+    #main {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        height:100%;
+        width:100%;
+    }
+    
     #container {
         display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         border-style: solid;
         border-color: black;
-        height: 40vh;
-        width: 200px;
+        height: 80vh;
+        width: 150vh;
     }
-    .book{
-        height:100px;
-        width:fit-content;
-        border-style:solid;
-        border-color:black;
-        
+
+    .book {
+        border-style: solid;
+        padding:2rem;
+        background-color: grey;
     }
+   /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  align-content:center;
+  z-index: 1; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  
+}
+
+.modal-content {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,83,9,1) 72%, rgba(255,160,0,1) 100%);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  color: orange;
+  border-radius:4rem;
+  text-align:center;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+    
 
 </style>
 
@@ -24,11 +71,39 @@
 </head>
 
 <body>
-    <div id='container' style="overflow-y: scroll; height:400px;">
+    <div id='main'>
+    <div id='container' style="overflow-y: scroll; height:80vh;">
 
     </div>
-    <button id='click' onclick='addToLibrary()'>click</button>
-   
+     
+<div>
+    <h1>Submit New Book</h1><br>
+    <button id='myBtn' >Add book</button>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+        <label for="title">Title:</label>
+        <br>
+        <input type="text" id="title">
+        <br>
+        <label for='author'>Author:</label>
+        <br>
+        <input type="text" id="author">
+        <br>
+        <label for='pages'>Pages:</label>
+        <br>
+        <input type="text" id="pages">
+        <br>
+        <br>
+        <button id='submit' onclick='addToLibrary()'>submit</button>
+      </form> 
+  </div>
+
+</div> 
+    <button id='click' onclick='render()'>click</button>
+   </div>
 </body>
 <script type="text/javascript" src='libraryScript.js'></script>
 </html>
